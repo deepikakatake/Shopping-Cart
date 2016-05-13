@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bag It</title>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+	<link rel="stylesheet" href="libs/JCrop/css/jquery.Jcrop.css" type="text/css" />
+	<link rel="stylesheet" href="styles/index.css">
+	<link rel="stylesheet" href="styles/product.css">
+	<link rel="stylesheet" href="styles/cart.css">
+
+	<script type="text/javascript">
+		var t0=performance.now();
+	</script>
+
+
+	
+<style type="text/css">
+
+
+/* Apply these styles only when #preview-pane has
+   been placed within the Jcrop widget */
+.jcrop-holder #preview-pane {
+  display: block !important;
+  position: absolute !important;
+  z-index: 2000 !important;
+  top: 10px !important;
+  right: -280px !important;
+  padding: 6px !important;
+  border: 1px rgba(0,0,0,.4) solid !important;
+  background-color: white !important;
+
+  -webkit-border-radius: 6px !important;
+  -moz-border-radius: 6px !important;
+  border-radius: 6px !important;
+
+  -webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2) !important;
+  -moz-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* The Javascript code will set the aspect ratio of the crop
+   area based on the size of the thumbnail preview,
+   specified here */
+#preview-pane .preview-container {
+  width: 250px !important;
+  height: 170px !important;
+  overflow: hidden !important;
+}
+
+
+</style>
+
+</head>
+<body ng-app="bagitApp" ng-init="quanArr=[1,2,3,4,5,6,7,8,9,10]">
+	<div class="container-fluid nav-color navbar-fixed-top" ng-controller="headerController">
+		<nav>
+			<div class="container">	
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed nav-btn" data-toggle="collapse" data-target="#navBar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#"><img class="img-responsive" src="images/logo.png"></a>	
+				</div>
+				<div class="collapse navbar-collapse" id="navBar">
+					<ul class="nav navbar-nav">
+						<li><a href="home">Home</a></li>
+						<li><a href="cart">Cart</a></li>			
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">
+								<i class="glyphicon glyphicon-shopping-cart"></i>
+								<span class="cust-badge" ng-hide="fullCart.totalItems==0">
+									<i class="teal new badge nav-badge" ng-bind="fullCart.totalItems"></i>
+									<i class=" teal new badge nav-badge" ng-bind="fullCart.totalPrice | currency"></i>
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	
+	</div>
+	<div class="container pan-mar" ng-view>
+	</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+<script src="libs/angular-modal-service.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.js"></script>
+<script src="controllers/main.controller.js"></script>
+<script src="controllers/cart.controller.js"></script>
+<script src="libs/JCrop/js/jquery.Jcrop.js"></script>	
+<script type="text/javascript">
+
+	var t1= performance.now()
+	console.log(t1-t0);
+</script>
+<script type="text/javascript">
+    
+</script>
+</html>

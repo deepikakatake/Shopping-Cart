@@ -1,0 +1,72 @@
+<div class="row" ng-init="loading=true">
+  <div class="col-md-12 col-xs-12 spinner text-center">
+    <img src="images/spinner.gif" ng-show="loading">
+  </div>
+  <div class="col-md-3 col-xs-12 itm-pad" ng-repeat="item in products">
+    <div class="item card">
+      <div class="card-img-brd card-image waves-effect waves-block waves-light">
+        <img class="activator" ng-src="{{item.image}}">
+        <i class="activator glyphicon glyphicon-info-sign right" title="Product in a glance" ></i>
+        <i class="glyphicon glyphicon-cog" ng-click="show($index);" title="Product Info in detail"></i>
+      </div>
+      
+      <div class="card-content teal crd-content-width">
+        <span class="activator white-text text-darken-4">{{item.name}}</span>
+      </div>
+      <div class="card-reveal card-pad">
+        <span class="card-title grey-text text-darken-4"><i class="glyphicon glyphicon-remove-circle right"></i> {{item.name}} </span>
+        <br>
+        <p>{{item.note}}</p>
+      </div>
+      <div class="row bottom" ng-hide="state.opts[$index]">
+      	<div class="chip white-text col-xs-12 col-md-3 red">{{item.price | currency}}</div>
+      	<select class="col-md-5 col-xs-12 selectpicker red" ng-options="value as value for value in quanArr" ng-model="state.selectedQuan[$index]">
+           <option class="white-text" value="">Quantity</option>
+      	</select>
+      	<a class="btn-floating col-xs-12 btn-large waves-effect waves-light red col-md-4" ng-click="addToCart(item,$index);"><i class="material-icons white-text1">Bag It!!</i></a>
+    	</div>
+      <div class="row bottom" ng-show="state.opts[$index]">
+        You have {{state.selectedQuan[$index]}} items.
+        <a class="btn-floating col-xs-12 btn-large waves-effect waves-light red col-md-4"  ng-click="removeFromCart(item.id,$index);"><i class="material-icons">toss!!</i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/ng-template" id="modal.html">
+   <div class="modal fade modal-color">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3  class="glyphicon glyphicon-remove-circle right" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true"></h3>
+          <h3 class="modal-title">{{products[modalItemIndex].name}}</h3>
+        </div>
+        <div class="modal-body">
+          <div class="jc-demo-box">
+            <img class="img-responsive" id="target" ng-src="{{products[modalItemIndex].image}}">
+            <div id="preview-pane">
+              <div class="preview-container">
+                <img class="img-responsive" ng-src="{{products[modalItemIndex].image}}" class="jcrop-preview" alt="Preview" />
+              </div>
+            </div>  
+          </div>
+          <h4>Configuration :</h4>
+          <div>{{products[modalItemIndex].note}}</div>
+        </div>
+        <div class="modal-footer">
+          <div class="row bottom" ng-hide="state.opts[modalItemIndex]">
+            <div class="chip white-text col-xs-12 col-md-3 red no-pad">{{products[modalItemIndex].price | currency}}</div>
+            <select class="col-md-5 col-xs-12 selectpicker red" ng-options="value as value for value in quanArr" ng-model="state.selectedQuan[modalItemIndex]">
+              <option class="white-text" value="">Quantity</option>
+            </select>
+            <a class="btn-floating col-xs-12 btn-large waves-effect waves-light red col-md-4 no-pad" ng-click="addToCart(products[modalItemIndex], modalItemIndex)"><i class="material-icons">Bag It!!</i></a>
+          </div>
+          <div class="row bottom" ng-show="state.opts[modalItemIndex]">
+            You have {{state.selectedQuan[modalItemIndex]}} items.
+            <a class="btn-floating col-xs-12 btn-large waves-effect waves-light red col-md-4 no-pad" ng-click="removeFromCart(products[modalItemIndex].id, modalItemIndex);"><i class="material-icons">Toss!!</i></a>
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</script>

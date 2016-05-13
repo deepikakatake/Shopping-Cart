@@ -1,0 +1,45 @@
+.white-box{
+	background-color: white;
+	border-radius: 10px;
+	padding: 70px;
+	border: 1px solid lightgrey;
+	overflow: auto;
+}
+.cart-head{
+	font-size: x-large;
+	font-weight: bold;
+	text-align: center;
+	font-family: serif;
+	border: 1px solid grey;
+    border-radius: 50%;
+    background: linear-gradient( to top, #010131, #0000A9);
+    color:white;
+}
+.no-cart{
+	font-weight: bold;
+	color:lightgrey;
+	font-size: 30px;
+	text-align: center;
+}
+.pad>div:not(:first-child){
+	padding: 2%;
+	font-size: large;
+}
+.pad>div:first-child{
+	margin-top: 0.5% ;
+}
+.cart-badge-grp{
+	margin-top: 30px ;
+}
+.cart-badge-grp > i{
+	font-size: 20px;
+	padding: 15px;
+}
+.stripe:nth-child(odd){
+	background-color:lightgrey;
+	margin-bottom: 0;
+}
+.stripe:nth-child(even){
+	background-color:white;
+	margin-bottom: 0;
+}

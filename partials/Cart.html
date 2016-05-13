@@ -1,0 +1,23 @@
+<div class="container white-box">
+	<div class="col-md-12 cart-head">
+		Your Cart
+	</div>
+	<div ng-hide="fullCart.cart.length==0 || !fullCart" class="row stripe text-center">
+		<h4 class="col-md-6"> Item </h4>
+		<h4 class="col-md-2"> Quantity </h4>
+		<h4 class="col-md-4"> Price </h4>
+	</div>
+	<div ng-repeat="cartItem in fullCart.cart" class="row pad stripe text-center">
+		<div class="col-md-1"><img ng-src="{{cartItem.item.image}}" alt="" class="img-thumbnail"></div>
+		<div class="col-md-5">{{cartItem.item.name}}</div>
+		<div class="col-md-2">{{cartItem.quantity}}</div>
+		<div class="col-md-4">{{cartItem.quantity*cartItem.item.price | currency}}</div>
+	</div>
+	<div ng-hide="fullCart.cart.length==0 || !fullCart" class="col-md-12 text-center cart-badge-grp">
+		<i class="new badge teal">Total Items : {{fullCart.totalItems}}</i>
+		<i class="new badge teal">Total Price : {{fullCart.totalPrice | currency}}</i>
+	</div>
+	<div ng-show="fullCart.cart.length==0 || !fullCart" class="no-cart">
+		No items in the cart !!!
+	</div>
+</div>

@@ -1,0 +1,92 @@
+body{
+	background-color: #e9eaed;
+}
+#navBar{
+	margin:0px;
+}
+nav{
+	background-color: transparent !important;
+	height: auto !important;
+}
+.pan-mar{
+	margin-top: 100px;
+}
+.cust-badge{
+	display: inline-block;
+}
+
+ .nav-badge{
+	height: 20px;
+	margin-left: 5px;
+	margin-top: 5px;
+	display: block;
+	min-width:75px !important;
+}
+ .nav-badge:first-child:before{
+	content:'Items ';
+	font-size: 15px;
+}
+.chip{
+	padding: 0px;
+}
+.glyphicon-shopping-cart{
+	font-size: 35px;
+}
+@media (max-width: 600px) {
+  .img-responsive {
+    height: 80px; // Logo will not overhang
+  }
+}
+@media(max-width: 768px){
+	.in ul li{
+		width: 100%;
+	}
+}
+.navbar-right > li,.navbar-right > li>a{
+	padding: 5px !important;
+}
+nav i.glyphicon{
+	height: 0;
+	line-height: 1.5;
+}
+nav i.glyphicon:before{
+	vertical-align: top;
+}
+
+a.navbar-brand{
+	padding: 0px;
+}
+.nav-color{
+	box-shadow: 0px 10px 20px 0px;
+	background:linear-gradient( to top, #010131, #0000A9);
+}
+
+nav li{
+	display: inline-block;
+	padding: 10px !important;
+	text-align: center;
+	margin: 0px;
+}
+nav a{
+	margin: 0px;
+	line-height: 0px;
+	color:white;
+	font-size: 20px !important;
+	text-decoration: none;
+}
+
+
+nav li:hover,nav ul li a:hover{
+	color: white;
+	text-decoration: none;
+	background-color: #600005 !important;
+}
+nav li a:link{
+	text-decoration: none;
+}
+.nav-btn{
+	border-color: white;
+}
+.nav-btn .icon-bar{
+	background-color: white;
+}
