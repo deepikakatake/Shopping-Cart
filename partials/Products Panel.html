@@ -34,7 +34,7 @@
 </div>
 
 <script type="text/ng-template" id="modal.html">
-   <div class="modal fade modal-color">
+   <div class="modal fade modal-color" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -46,7 +46,7 @@
             <img class="img-responsive" id="target" ng-src="{{products[modalItemIndex].image}}">
             <div id="preview-pane">
               <div class="preview-container">
-                <img class="img-responsive" ng-src="{{products[modalItemIndex].image}}" class="jcrop-preview" alt="Preview" />
+                <img  ng-src="{{products[modalItemIndex].image}}" class="jcrop-preview" alt="Preview" />
               </div>
             </div>  
           </div>

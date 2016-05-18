@@ -1,6 +1,7 @@
+
 var app=angular.module('bagitApp',['ngRoute','angularModalService']);
 
-app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
+app.config(function($routeProvider,$locationProvider){
 	$routeProvider
 	.when('/home',{
 		templateUrl:'partials/Products Panel.html',
@@ -15,7 +16,7 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
 	});
 	$locationProvider.html5Mode({enabled:true,requireBase:false});
 
-}]);
+});
 
 app.factory('cartService',function($rootScope){
 	return {
@@ -75,18 +76,18 @@ function headerController($rootScope,$scope,cartService){
 }
 
 function productsController($rootScope,$scope,cartService,ProductsService,ModalService){
-	
-	 $scope.show = function(index) {
+	$scope.show = function(index) {
 	 	$rootScope.modalItemIndex = index;
         ModalService.showModal({
             templateUrl: 'modal.html',
-            controller: "ModalController"
+            controller: 'ModalController',
+            backdrop: 'static'
         }).then(function(modal) {
+        	foo();
             modal.element.modal();
             modal.close.then(function(result) {
-                $scope.message = "You said " + result;
             });
-            foo();
+            
         });
     };
 	ProductsService.getList().then(function(data){
@@ -165,6 +166,7 @@ function foo(){
 	      jcrop_api = this;
 	      console.log(jcrop_api);
 	      // Move the preview into the jcrop container for css positioning
+	      console.log(jcrop_api.ui.holder)
 	      $preview.appendTo(jcrop_api.ui.holder);
 	    });
 
